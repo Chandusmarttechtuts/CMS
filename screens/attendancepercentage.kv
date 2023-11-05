@@ -1,0 +1,298 @@
+<AttendancePercentageScreen>:
+    name: "Attendance_percentage"
+
+    ScrollView:
+        do_scroll_y: True
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: "10dp"
+            padding: "10dp"
+
+            MDLabel:
+                text: "ATTENDANCE"
+                font_style: "H3"
+                halign: "center"
+                color: (100/255, 0/255, 15/255,.8)
+                size_hint_y: None
+                height: "50dp"
+                padding: "0dp", "0dp","0dp","20dp"
+
+
+
+            MDLabel:
+                text: "ATTENDANCE PERCENTAGE"
+                font_style: "H5"
+                halign: "center"
+                color: (100/255, 0/255, 15/255,.8)
+                size_hint_y: None
+                height: "50dp"
+                padding: "0dp", "0dp","0dp","20dp"
+
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: "10dp"
+                padding: "10dp"
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: "10dp"
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        MDLabel:
+                            text: "Year:"
+                            theme_text_color: "Secondary"
+                            font_style: "Body1"
+
+                        MDLabel:
+                            text: "2nd Year"
+                            theme_text_color: "Primary"
+                            font_style: "Body2"
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        MDLabel:
+                            text: "Semester:"
+                            theme_text_color: "Secondary"
+                            font_style: "Body1"
+
+                        MDLabel:
+                            text: "1st sem"
+                            theme_text_color: "Primary"
+                            font_style: "Body2"
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: "10dp"
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        MDLabel:
+                            text: "Branch:"
+                            theme_text_color: "Secondary"
+                            font_style: "Body1"
+
+                        MDLabel:
+                            text: "CSE"
+                            theme_text_color: "Primary"
+                            font_style: "Body2"
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        MDLabel:
+                            text: "Section:"
+                            theme_text_color: "Secondary"
+                            font_style: "Body1"
+
+                        MDLabel:
+                            text: "A"
+                            theme_text_color: "Primary"
+                            font_style: "Body2"
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: "60dp"
+                spacing: "10dp"
+                padding: "10dp"
+
+                MDTextField:
+                    hint_text: "Registered Number"
+                    size_hint_x: None
+                    width: 300
+                    icon_right: 'magnify'
+                    radius: [20, 20, 20, 20]
+                    halign: "center"
+
+                MDRaisedButton:
+                    text: "Search"
+                    size_hint: None, None
+                    width: 100
+                    on_release: root.on_search_button_press()  # Add your search functionality
+
+            MDCard:
+                orientation: "vertical"
+                size_hint: None, None
+                size: dp(280), dp(200)
+                pos_hint: {"center_x": .5}
+                padding: dp(16)
+
+                BoxLayout:
+                    orientation: "horizontal"
+                    BoxLayout:
+                        orientation: 'vertical'
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            MDLabel:
+                                text: "Name:"
+                                theme_text_color: "Secondary"
+                                font_style: "Body1"
+
+                            MDLabel:
+                                text: "John Doe"
+                                theme_text_color: "Primary"
+                                font_style: "Body2"
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            MDLabel:
+                                text: "Reg No:"
+                                theme_text_color: "Secondary"
+                                font_style: "Body1"
+
+                            MDLabel:
+                                text: "12345"
+                                theme_text_color: "Primary"
+                                font_style: "Body2"
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            MDLabel:
+                                text: "Attendance Percentage:"
+                                theme_text_color: "Secondary"
+                                font_style: "Body1"
+
+                            MDLabel:
+                                text: "90%"
+                                theme_text_color: "Primary"
+                                font_style: "Body2"
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            MDLabel:
+                                text: "Marks:"
+                                theme_text_color: "Secondary"
+                                font_style: "Body1"
+
+                            MDLabel:
+                                text: "95"
+                                theme_text_color: "Primary"
+                                font_style: "Body2"
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            MDLabel:
+                                text: "Credits"
+                                theme_text_color: "Secondary"
+                                font_style: "Body1"
+
+                            MDLabel:
+                                text: "120"
+                                theme_text_color: "Primary"
+                                font_style: "Body2"
+                Image:
+                    source: "student_photo.png"
+                    size_hint: None, None
+                    size: dp(48), dp(48)
+                    pos_hint: {"right": 1, "top": 1}
+                    canvas.before:
+                        Ellipse:
+                            pos: self.pos
+                            size: self.size
+
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                adaptive_width: True
+                adaptive_size: True
+                spacing: "10dp"
+                padding: "10dp"
+                MDLabel:
+                    text: "Download Student lists"
+                    font_style: "H5"
+                    halign: "center"
+                    color: (100/255, 0/255, 15/255,.8)
+                    size_hint_y: None
+                    height: "50dp"
+
+                MDRoundFlatIconButton:
+                    text: "Student percentages"
+                    icon: "todo.png"
+                    size_hint: None, None
+                    halign: "center"
+                    size: "150dp", "50dp"
+                    pos_hint: {"center_x": 0.5}
+                    on_press: root.on_buttontype_press("manual_attendance")
+                MDRoundFlatIconButton:
+                    text: "Percentage < 75"
+                    icon: "notification.png"
+                    size_hint: None, None
+                    halign: "center"
+                    size: "150dp", "50dp"
+                    pos_hint: {"center_x": 0.5}
+                    on_press: root.on_buttontype_press("send_alert")
+                MDRoundFlatIconButton:
+                    text: "Detained student list"
+                    icon: "notification.png"
+                    size_hint: None, None
+                    halign: "center"
+                    size: "150dp", "50dp"
+                    pos_hint: {"center_x": 0.5}
+                    on_press: root.on_buttontype_press("attendance_percentage")
+
+    MDNavigationLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "CMS"
+            pos_hint: {"top": 1}
+            halign: "center"
+            opacity: .5
+            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+            right_action_items: [["arrow-left-bold", lambda x: root.on_nav_bar_press("arrow-left"), "", "arrow left"],["home", lambda x: root.on_nav_bar_press("home"), "", "Home"],["theme-light-dark", lambda x: app.switch_theme(), "", "Theme light dark"],["dots-vertical", lambda x: app.callback(x), "", "Dots vertical"]]
+            elevation: 10
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: (0, 60, 60, 0)
+            background_color: (255/255,255/255,150/255,0.6)
+            MDNavigationDrawerMenu:
+
+                MDNavigationDrawerHeader:
+                    title: "Staff_Name"
+                    title_color: "#4a3969"
+                    text: "Staff_ID"
+                    spacing: "4dp"
+                    padding: "12dp", 0, 0, "56dp"
+                MDNavigationDrawerDivider:
+
+                DrawerLabelItem:
+                    text: "MENU"
+
+                MDNavigationDrawerDivider:
+
+                DrawerClickableItem:
+                    icon: "home"
+                    text: "Home"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Home","home")
+
+                DrawerClickableItem:
+                    icon: "bookmark-plus"
+                    text: "Attendance"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Attendance","home")
+                DrawerClickableItem:
+                    icon: "book-education-outline"
+                    text: "Academics"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Academics","home")
+                DrawerClickableItem:
+                    icon: "account-box-multiple"
+                    text: "Accounts"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Accounts","home")
+
+                DrawerClickableItem:
+                    icon: "file-table-box-outline"
+                    text: "Time tables"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Time tables","home")
+                DrawerClickableItem:
+                    icon: "hammer-wrench"
+                    text: "Regulations"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Regulations","home")
+    MDFloatingActionButtonSpeedDial:
+        data: app.data
+        root_button_anim: True

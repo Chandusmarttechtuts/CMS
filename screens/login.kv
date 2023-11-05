@@ -1,0 +1,47 @@
+<LoginScreen>:
+    name: "login"
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "20dp"
+        padding: "16dp"
+
+        Image:
+            id: welcome_icon
+            source: "icon.png"
+            size_hint: None, None
+            size: "100dp", "100dp"
+            opacity: 1
+            allow_stretch: True
+
+        MDLabel:
+            text: "Login"
+            theme_text_color: "Secondary"
+            font_style: "H4"
+
+        MDIconButton:
+            icon: "login"
+            size_hint: None,None
+            width: self.height
+            height: self.height
+
+        MDTextField:
+            id: staffID_field
+            hint_text: "Staff ID"
+            icon_right: "account-circle"
+            helper_text: "Enter your Staff ID"
+            helper_text_mode: "on_focus"
+
+        MDTextField:
+            id: password_field
+            hint_text: "Password"
+            icon_right: "eye"
+            helper_text: "Enter your password"
+            helper_text_mode: "on_focus"
+            password: True
+
+        MDRaisedButton:
+            text: "Login"
+            on_release: root.login()
+
+        MDLabel:
+            id: login_message

@@ -1,0 +1,79 @@
+#: import WelcomeScreen screens.home.HomeScreen
+#: import LoginScreen screens.login.LoginScreen
+#: import AttendanceFilterScreen screens.attendancefil.AttendanceFilterScreen
+#: import AttendancePercentageScreen screens.attendancepercentage.AttendancePercentageScreen
+#: import ChatbotScreen screens.chatbot.ChatbotScreen
+#: import ManualAttendanceScreen screens.manualattendance.ManualAttendanceScreen
+
+
+#: include screens\login.kv
+#: include screens\home.kv
+#: include screens\attendancefil.kv
+#: include screens\attendancepercentage.kv
+#: include screens\chatbot.kv
+#: include screens\manualattendance.kv
+
+
+
+ScreenManager:
+    WelcomeScreen:
+    LoginScreen:
+    HomeScreen:
+    AttendanceFilterScreen:
+    AttendancePercentageScreen:
+    ChatbotScreen:
+    ManualAttendanceScreen:
+
+<WelcomeScreen>:
+    name: "welcome"
+    BoxLayout:
+        orientation: "vertical"
+
+        AnchorLayout:
+            anchor_x: "center"
+            anchor_y: "top"
+
+            Image:
+                id: college_icon
+                source: "project.png"
+                size_hint: None, None
+                size: "200dp", "200dp"
+                opacity: 0.8
+                allow_stretch: True
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "20dp"
+            padding: "16dp"
+
+            Image:
+                id: welcome_icon  # Give it an ID
+                source: "icon.png"
+                size_hint: None, None
+                size: "100dp", "100dp"
+                opacity: 1
+                allow_stretch: True
+            Label:
+                text: "MENTORS"
+                halign: "center"
+                valign: "middle"
+                font_size: "48sp"
+                markup: True
+
+            MDLabel:
+                text: "Welcome to CMS(college management system)"
+                halign: "center"
+                theme_text_color: "Secondary"
+                font_style: "H4"
+
+            MDRaisedButton:
+                text: "Getting Started"
+                on_release: root.switch_to_login(2)
+
+
+
+
+
+

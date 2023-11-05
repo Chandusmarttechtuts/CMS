@@ -1,0 +1,195 @@
+<AttendanceFilterScreen>:
+    name: "attendance_filter"
+    MDFloatingActionButtonSpeedDial:
+        data: app.data
+        root_button_anim: True
+    BoxLayout:
+        orientation: "vertical"
+        adaptive_height: True
+        adaptive_width: True
+        adaptive_size: True
+        spacing: "5dp"
+        padding: "5dp"
+
+        MDLabel:
+            text: "ATTENDANCE"
+            font_style: "H3"
+            halign: "center"
+            color: (100/255, 0/255, 15/255)
+            size_hint_y: None
+            height: "50dp"
+
+        GridLayout:
+            cols: 2
+            spacing: "10dp"
+            padding: "10dp"
+            row_default_height: "100dp"
+            row_force_default: True
+
+            MDCard:
+                padding: 4
+                focus_behavior: True
+                md_bg_color: "darkgrey"
+                unfocus_color: "darkgrey"
+                focus_color: "grey"
+                elevation: 6
+                MDLabel:
+                    text: "Select Year"
+                    theme_text_color: "Secondary"
+                    font_style: "H6"
+
+                MDRoundFlatIconButton:
+                    id: year
+                    text: "Year"
+                    icon: "chevron-down"
+                    on_press: app.Year_menu_open()
+
+            MDCard:
+                padding: 4
+                focus_behavior: True
+                md_bg_color: "darkgrey"
+                unfocus_color: "darkgrey"
+                focus_color: "grey"
+                elevation: 6
+                MDLabel:
+                    text: "Select Sem"
+                    theme_text_color: "Secondary"
+                    font_style: "H6"
+
+                MDRoundFlatIconButton:
+                    id: sem
+                    text: "Semester"
+                    icon: "chevron-down"
+                    on_press: app.Sem_menu_open()
+
+            MDCard:
+                padding: 4
+                focus_behavior: True
+                md_bg_color: "darkgrey"
+                unfocus_color: "darkgrey"
+                focus_color: "grey"
+                elevation: 6
+                MDLabel:
+                    text: "Select Branch"
+                    theme_text_color: "Secondary"
+                    font_style: "H6"
+                MDRoundFlatIconButton:
+                    id: branch
+                    text: "Branch"
+                    icon: "chevron-down"
+                    on_press: app.Branch_menu_open()
+            MDCard:
+                padding: 4
+                focus_behavior: True
+                md_bg_color: "darkgrey"
+                unfocus_color: "darkgrey"
+                focus_color: "grey"
+                elevation: 6
+                MDLabel:
+                    text: "Select Section"
+                    theme_text_color: "Secondary"
+                    font_style: "H6"
+                MDRoundFlatIconButton:
+                    id: section
+                    text: "Section"
+                    icon: "chevron-down"
+                    on_press: app.Sec_menu_open()
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            adaptive_width: True
+            adaptive_size: True
+            spacing: "5dp"
+            padding: "5dp"
+            MDRoundFlatIconButton:
+                text: "Manual Attendance"
+                icon: "todo.png"
+                size_hint: None, None
+                halign: "center"
+                size: "150dp", "50dp"
+                pos_hint: {"center_x": 0.5}
+                on_press: root.on_buttontype_press("manual_attendance")
+            MDRoundFlatIconButton:
+                text: "Send Alert"
+                icon: "notification.png"
+                size_hint: None, None
+                halign: "center"
+                size: "150dp", "50dp"
+                pos_hint: {"center_x": 0.5}
+                on_press: root.on_buttontype_press("send_alert")
+            MDRoundFlatIconButton:
+                text: "Attendance percentage"
+                icon: "notification.png"
+                size_hint: None, None
+                halign: "center"
+                size: "150dp", "50dp"
+                pos_hint: {"center_x": 0.5}
+                on_press: root.on_buttontype_press("attendance_percentage")
+
+
+
+
+
+    MDNavigationLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "CMS"
+            pos_hint: {"top": 1}
+            opacity: .5
+            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+            right_action_items: [["arrow-left-bold", lambda x: root.on_nav_bar_press("arrow-left"), "", "arrow left"],["home", lambda x: root.on_nav_bar_press("home"), "", "Home"],["theme-light-dark", lambda x: app.switch_theme(), "", "Theme light dark"],["dots-vertical", lambda x: app.callback(x), "", "Dots vertical"]]
+            elevation: 10
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: (0, 60, 60, 0)
+            background_color: (255/255,255/255,150/255,0.6)
+            MDNavigationDrawerMenu:
+
+                MDNavigationDrawerHeader:
+                    title: "Staff_Name"
+                    title_color: "#4a3969"
+                    text: "Staff_ID"
+                    spacing: "4dp"
+                    padding: "12dp", 0, 0, "56dp"
+                MDNavigationDrawerDivider:
+
+                DrawerLabelItem:
+                    text: "MENU"
+
+                MDNavigationDrawerDivider:
+
+                DrawerClickableItem:
+                    icon: "home"
+                    text: "Home"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Home","home")
+
+                DrawerClickableItem:
+                    icon: "bookmark-plus"
+                    text: "Attendance"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Attendance","home")
+                DrawerClickableItem:
+                    icon: "book-education-outline"
+                    text: "Academics"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Academics","home")
+                DrawerClickableItem:
+                    icon: "account-box-multiple"
+                    text: "Accounts"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Accounts","home")
+
+                DrawerClickableItem:
+                    icon: "file-table-box-outline"
+                    text: "Time tables"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Time tables","home")
+                DrawerClickableItem:
+                    icon: "hammer-wrench"
+                    text: "Regulations"
+                    color: "#4a3969"
+                    on_release: app.root.get_screen("home").nav_drawer_press("Regulations","home")
+                MDNavigationDrawerDivider:
